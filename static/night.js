@@ -71,25 +71,28 @@ const win = function() {
     const allOne = document.querySelectorAll('one')
     const status = _.filter(allOne, one => goodPos(one))
     if (status.length > 7) {
-        alert('You win!')
-        window.location.reload()
+        setTimeout(function(){
+            alert('You win!')
+            window.location.reload()
+        }, 200)
     }
 }
 
 const bindEvent = function() {
+    // $(window).keydown(function(event){
     window.addEventListener('keydown', function(event){
         // log(event)
         const e = event
-        if (e.key === 'ArrowLeft') {
+        if (e.keyCode === 37) {
             // log('left')
             left()
-        } else if (e.key === 'ArrowRight') {
+        } else if (e.keyCode === 39) {
             // log('right')
             right()
-        } else if (e.key === 'ArrowUp') {
+        } else if (e.keyCode === 38) {
             // log('up')
             up()
-        } else if (e.key === 'ArrowDown'){
+        } else if (e.keyCode === 40){
             // log('down')
             down()
         } else {
